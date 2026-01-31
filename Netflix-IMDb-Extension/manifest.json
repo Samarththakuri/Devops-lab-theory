@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Netflix IMDb Ratings Viewer",
+  "version": "1.0",
+  "description": "Displays IMDb ratings on Netflix when you hover over a movie or show.",
+  "permissions": ["storage"],
+  "host_permissions": ["*://*.netflix.com/*", "*://*.omdbapi.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.netflix.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
+}

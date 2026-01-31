@@ -1,0 +1,43 @@
+/* styles.css - Improved Version */
+
+.imdb-rating-badge {
+  /* Background: A slightly softer black with a touch of warmth */
+  background: linear-gradient(
+    to right,
+    rgba(235, 185, 0, 0.9),
+    rgba(199, 158, 0, 0.9)
+  );
+
+  /* Text: Clear, bold white for excellent contrast */
+  color: #ffffff;
+
+  /* Spacing: More generous padding for a comfortable feel */
+  padding: 6px 12px;
+
+  /* Shape: A subtle curve, but not too round */
+  border-radius: 8px;
+
+  /* Font: A modern, readable sans-serif font */
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 600; /* A bit heavier for presence */
+
+  /* Shadow: A more sophisticated, layered shadow for depth */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  /* Positioning: Make sure it sits on top of other elements */
+  z-index: 10;
+
+  /* No interaction */
+  pointer-events: none;
+
+  /* Animation: A smooth, subtle fade-in */
+  opacity: 0;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
