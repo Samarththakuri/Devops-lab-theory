@@ -25,7 +25,8 @@ This section contains practical experiments and hands-on exercises to apply DevO
 ### Lab Experiments
 
 - [Lab 1: Perfomance Comparision](Labs/experiment1/README.md)
-
+- [Lab 2: Working with nginx in Docker](Labs/experiment2/README.md)
+- [Lab 3: Ubuntu Layers and FastAPI Deployment](Labs/experiment3/README.md)
 ---
 
 ## 📌 Notes
