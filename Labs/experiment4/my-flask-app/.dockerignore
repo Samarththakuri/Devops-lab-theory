@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv
+env/
+venv/
+.vscode/
+.idea/
+.git/
+.gitignore
+.DS_Store
+Thumbs.db
+*.log
+logs/
+tests/
