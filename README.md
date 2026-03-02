@@ -1,4 +1,3 @@
-
 # SAPID: 500119430
 
 # Containerization and DevOps
@@ -14,7 +13,12 @@ This section includes notes, and documentation related to Containerization and D
 
 ### Theory Topics
 
-- [1: Working with Docker and Dockerfile](Theory/Docker-Images)
+- [1: java-app](Theory/java-app)
+- [2: c-app](Theory/c-app)
+- [3: sap-id checker](Theory/sap-id-checker)
+- [4: docker-volumes](Theory/docker-volumes)
+- [5: docker-networks](Theory/docker-networks)
+- [6: docker-compose](Theory/docker-compose)
 
 ---
 
@@ -27,7 +31,10 @@ This section contains practical experiments and hands-on exercises to apply DevO
 - [Lab 1: Perfomance Comparision](Labs/experiment1/README.md)
 - [Lab 2: Working with nginx in Docker](Labs/experiment2/README.md)
 - [Lab 3: Ubuntu Layers and FastAPI Deployment](Labs/experiment3/README.md)
+
 ---
+
+- [Lab 4](Labs/experiment4/README.md)
 
 ## 📌 Notes
 
