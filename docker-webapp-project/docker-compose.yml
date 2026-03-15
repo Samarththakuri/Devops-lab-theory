@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  database:
+    build: ./database
+    container_name: postgres_container
+    restart: always
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+
+    networks:
+      project_macvlan:
+        ipv4_address: 192.168.100.11
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin"]
+      interval: 10s
+      retries: 5
+
+  backend:
+    build: ./backend
+    container_name: backend_container
+    restart: always
+
+    depends_on:
+      database:
+        condition: service_healthy
+
+    environment:
+      DB_HOST: 192.168.100.11
+      POSTGRES_DB: mydb
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+
+    networks:
+      project_macvlan:
+        ipv4_address: 192.168.100.10
+
+volumes:
+  postgres_data:
+
+networks:
+  project_macvlan:
+    external: true
