@@ -15,12 +15,12 @@ This section includes notes, and documentation related to Containerization and D
 
 ### Theory Topics
 
-- [1: java-app](Theory/java-app)
-- [2: c-app](Theory/c-app)
-- [3: sap-id checker](Theory/sap-id-checker)
-- [4: docker-volumes](Theory/docker-volumes)
-- [5: docker-networks](Theory/docker-networks)
-- [6: docker-compose](Theory/docker-compose)
+- [1: java-app](Theory/java-app/README.md)
+- [2: c-app](Theory/c-app/README.md)
+- [3: sap-id checker](Theory/sap-id-checker/README.md)
+- [4: docker-volumes](Theory/docker-volumes/README.md)
+- [5: docker-networks](Theory/docker-networks/README.md)
+- [6: docker-compose](Theory/docker-compose/README.md)
 
 ---
 
