@@ -31,10 +31,14 @@ This section contains practical experiments and hands-on exercises to apply DevO
 - [Lab 1: Perfomance Comparision](Labs/experiment1/README.md)
 - [Lab 2: Working with nginx in Docker](Labs/experiment2/README.md)
 - [Lab 3: Ubuntu Layers and FastAPI Deployment](Labs/experiment3/README.md)
+- [Lab 4:Docker Essentials](Labs/experiment4/README.md)
+- [Lab 5: Docker - Volumes, Environment Variables, Monitoring & Networks](Labs/experiment5/README.md)
 
 ---
 
-- [Lab 4](Labs/experiment4/README.md)
+### Assignment
+
+-[Assignment 1](Assignments/docker-webapp-project/README.md)
 
 ## 📌 Notes
 
