@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  postgres-db:
+    image: postgres:15
+    container_name: postgres-db
+    networks:
+      - app-net
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    image: python:3.11-slim
+    container_name: backend
+    networks:
+      - app-net
+    ports:
+      - "8000:8000"
+    environment:
+      DB_HOST: postgres-db
+      DB_USER: admin
+      DB_PASS: secret
+    depends_on:
+      - postgres-db
+
+volumes:
+  pgdata:
+
+networks:
+  app-net:
