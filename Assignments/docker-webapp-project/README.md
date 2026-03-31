@@ -110,7 +110,7 @@ Example request body:
 }
 ```
 
-![posting records](screenshots/Screenshot-1.png)
+![posting records](Screenshots/Screenshot-1.png)
 ![posting records](Screenshots/Screenshot-2.png)
 
 ---
