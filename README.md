@@ -30,20 +30,24 @@ This section contains practical experiments and hands-on exercises to apply DevO
 
 ### Lab Experiments
 
-- [Lab 1: Perfomance Comparision](Labs/experiment1/README.md)
-- [Lab 2: Working with nginx in Docker](Labs/experiment2/README.md)
-- [Lab 3: Ubuntu Layers and FastAPI Deployment](Labs/experiment3/README.md)
-- [Lab 4:Docker Essentials](Labs/experiment4/README.md)
-- [Lab 5: Docker - Volumes, Environment Variables, Monitoring & Networks](Labs/experiment5/README.md)
+-[Lab 1: Perfomance Comparision](Labs/experiment1/README.md)
+-[Lab 2: Working with nginx in Docker](Labs/experiment2/README.md)
+-[Lab 3: Ubuntu Layers and FastAPI Deployment](Labs/experiment3/README.md)
+-[Lab 4:Docker Essentials](Labs/experiment4/README.md)
+-[Lab 5: Docker - Volumes, Environment Variables, Monitoring & Networks](Labs/experiment5/README.md)
+-[Lab 6: Docker Compose vs Docker Run](Labs/experiment6/README.md)
+-[Lab 7: Jenkins App](Labs/experiment7/README.md)
+-[Lab 9: Ansible](Labs/experiment9/README.md)
+-[Lab 10: SonarQube](Lab/experiment10/README.md)
 
 ---
 
 ### Assignment
 
 -[Assignment 1](Assignments/docker-webapp-project/README.md)
-
+-[Assignment Apache Server](pache-class-assignment/README.md)
 ## 📌 Notes
 
-- All theory materials are located in the `class/` directory.
-- All lab experiments are located in the `lab/` directory.
+- All theory materials are located in the `theory/` directory.
+- All lab experiments are located in the `labs/` directory.
 - Each link points to a detailed Markdown file for easy reading and updates.
