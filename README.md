@@ -1,53 +1,68 @@
-# NAME:Samarth Chand Thakuri
-
-# SAPID: 500119430
-
-# Containerization and DevOps
-
-This repository contains theoretical resources and hands-on lab experiments related to **Containerization** and **DevOps** concepts.  
-It is organized into two main sections: **Theory** and **Lab**.
+Here’s a cleaner, more professional, and well-structured version of your README. I’ve fixed spacing, consistency, headings, and made it look more “GitHub-grade” 👇
 
 ---
 
-## Theory
+# 📦 Containerization and DevOps
 
-This section includes notes, and documentation related to Containerization and DevOps.
-
-### Theory Topics
-
-- [1: java-app](Theory/java-app/README.md)
-- [2: c-app](Theory/c-app/README.md)
-- [3: sap-id checker](Theory/sap-id-checker/README.md)
-- [4: docker-volumes](Theory/docker-volumes/README.md)
-- [5: docker-networks](Theory/docker-networks/README.md)
-- [6: docker-compose](Theory/docker-compose/README.md)
+**Name:** Samarth Chand Thakuri
+**SAP ID:** 500119430
 
 ---
 
-## Lab
+## 📖 Overview
 
-This section contains practical experiments and hands-on exercises to apply DevOps and Containerization concepts.
+This repository contains **theoretical concepts** and **hands-on lab experiments** related to **Containerization** and **DevOps**.
 
-### Lab Experiments
+It is structured into two main sections:
 
--[Lab 1: Perfomance Comparision](Labs/experiment1/README.md)
--[Lab 2: Working with nginx in Docker](Labs/experiment2/README.md)
--[Lab 3: Ubuntu Layers and FastAPI Deployment](Labs/experiment3/README.md)
--[Lab 4:Docker Essentials](Labs/experiment4/README.md)
--[Lab 5: Docker - Volumes, Environment Variables, Monitoring & Networks](Labs/experiment5/README.md)
--[Lab 6: Docker Compose vs Docker Run](Labs/experiment6/README.md)
--[Lab 7: Jenkins App](Labs/experiment7/README.md)
--[Lab 9: Ansible](Labs/experiment9/README.md)
--[Lab 10: SonarQube](Lab/experiment10/README.md)
+* 📚 **Theory** – Conceptual understanding and documentation
+* 🧪 **Lab** – Practical implementations and experiments
 
 ---
 
-### Assignment
+## 📚 Theory
 
--[Assignment 1](Assignments/docker-webapp-project/README.md)
--[Assignment Apache Server](pache-class-assignment/README.md)
+This section includes notes and documentation covering key DevOps and containerization concepts.
+
+### 🔹 Topics Covered
+
+* [Java App](Theory/java-app/README.md)
+* [C App](Theory/c-app/README.md)
+* [SAP ID Checker](Theory/sap-id-checker/README.md)
+* [Docker Volumes](Theory/docker-volumes/README.md)
+* [Docker Networks](Theory/docker-networks/README.md)
+* [Docker Compose](Theory/docker-compose/README.md)
+
+---
+
+## 🧪 Lab Experiments
+
+This section contains practical experiments to apply DevOps and containerization concepts.
+
+### 🔹 Experiments
+
+* [Lab 1: Performance Comparison](Labs/experiment1/README.md)
+* [Lab 2: Working with NGINX in Docker](Labs/experiment2/README.md)
+* [Lab 3: Ubuntu Layers & FastAPI Deployment](Labs/experiment3/README.md)
+* [Lab 4: Docker Essentials](Labs/experiment4/README.md)
+* [Lab 5: Volumes, Environment Variables, Monitoring & Networks](Labs/experiment5/README.md)
+* [Lab 6: Docker Compose vs Docker Run](Labs/experiment6/README.md)
+* [Lab 7: Jenkins App](Labs/experiment7/README.md)
+* [Lab 9: Ansible](Labs/experiment9/README.md)
+* [Lab 10: SonarQube](Labs/experiment10/README.md)
+
+---
+
+## 📝 Assignments
+
+* [Docker Web App Project](Assignments/docker-webapp-project/README.md)
+* [Apache Server Assignment](apache-class-assignment/README.md)
+
+---
+
 ## 📌 Notes
 
-- All theory materials are located in the `theory/` directory.
-- All lab experiments are located in the `labs/` directory.
-- Each link points to a detailed Markdown file for easy reading and updates.
+* 📂 All theory materials are located in the `Theory/` directory
+* 🧪 All lab experiments are located in the `Labs/` directory
+* 📄 Each link points to a detailed Markdown file for easy navigation and updates
+
