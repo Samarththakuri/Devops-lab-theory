@@ -1,4 +1,3 @@
-
 ## Experiment 10: SonarQube
 
 ### Theory
@@ -10,6 +9,7 @@ Code quality issues (bugs, vulnerabilities, code smells) are often discovered la
 SonarQube is an open-source platform for continuous inspection of code quality. It performs automatic reviews with static analysis to detect bugs, code smells, and security vulnerabilities.
 
 **How SonarQube Solves the Problem:**
+
 - **Continuous Inspection**: Scans code with every commit, providing immediate feedback
 - **Quality Gates**: Defines pass/fail criteria for code quality
 - **Technical Debt Quantification**: Measures effort needed to fix issues
@@ -17,6 +17,7 @@ SonarQube is an open-source platform for continuous inspection of code quality. 
 - **Visual Analytics**: Dashboard showing code quality metrics and trends
 
 **Key Concepts:**
+
 - **Quality Gate**: Set of conditions that code must meet before deployment
 - **Technical Debt**: Estimated time to fix all issues
 - **Code Smells**: Maintainability issues that don't affect functionality
@@ -28,6 +29,7 @@ SonarQube is an open-source platform for continuous inspection of code quality. 
 ### Hands-on Lab Setup
 
 #### Lab Architecture
+
 ```
 ┌─────────────────┐     HTTP      ┌──────────────────┐
 │  Developer      │──────────────▶│  SonarQube       │
@@ -44,11 +46,12 @@ SonarQube is an open-source platform for continuous inspection of code quality. 
 └─────────────────┘               └──────────────────┘
 ```
 
-#### Step 1: Use docker-compose up -d with 
+#### Step 1: Use docker-compose up -d with
 
 `docker-compose.yml`
+
 ```yaml
-version: '3.8'
+version: "3.8"
 
 services:
   sonar-db:
@@ -71,7 +74,7 @@ services:
     ports:
       - "9000:9000"
     environment:
-      SONAR_JDBC_URL: jdbc:postgresql://sonar-db:5432/sonarqube
+      SONAR_JDBC_URL: jdbc:postgresql:/sonar-db:5432/sonarqube
       SONAR_JDBC_USERNAME: sonar
       SONAR_JDBC_PASSWORD: sonar
     volumes:
@@ -92,8 +95,9 @@ networks:
     driver: bridge
 ```
 
-![ ](screenshots\screenshot1.png)
-![ ](screenshots\screenshot2.png)
+![ ](screenshots/screenshot1.png)
+![ ](screenshots/screenshot2.png)
+
 #### Step 2: Create Sample Application with Code Issues
 
 ```bash
@@ -114,26 +118,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Calculator {
-    
-    // Bug: Division by zero not handled
+
+    / Bug: Division by zero not handled
     public int divide(int a, int b) {
-        return a / b;  // Bug: Potential division by zero
+        return a / b;  / Bug: Potential division by zero
     }
-    
-    // Code Smell: Unused variable
+
+    / Code Smell: Unused variable
     public int add(int a, int b) {
         int result = a + b;
-        int unused = 100;  // Code smell: Unused variable
+        int unused = 100;  / Code smell: Unused variable
         return result;
     }
-    
-    // Vulnerability: SQL injection risk
+
+    / Vulnerability: SQL injection risk
     public String getUser(String userId) {
-        String query = "SELECT * FROM users WHERE id = " + userId;  // Vulnerability: SQL injection
+        String query = "SELECT * FROM users WHERE id = " + userId;  / Vulnerability: SQL injection
         return query;
     }
-    
-    // Code Smell: Duplicate code
+
+    / Code Smell: Duplicate code
     public int multiply(int a, int b) {
         int result = 0;
         for (int i = 0; i < b; i++) {
@@ -141,8 +145,8 @@ public class Calculator {
         }
         return result;
     }
-    
-    // Duplicate code (same as multiply method)
+
+    / Duplicate code (same as multiply method)
     public int multiplyAlt(int a, int b) {
         int result = 0;
         for (int i = 0; i < b; i++) {
@@ -150,26 +154,26 @@ public class Calculator {
         }
         return result;
     }
-    
-    // Code Smell: Too many parameters
-    public void processUser(String name, String email, String phone, 
-                           String address, String city, String state, 
+
+    / Code Smell: Too many parameters
+    public void processUser(String name, String email, String phone,
+                           String address, String city, String state,
                            String zip, String country) {
-        // Process user data
+        / Process user data
         System.out.println("Processing: " + name);
     }
-    
-    // Bug: Null pointer risk
+
+    / Bug: Null pointer risk
     public String getName(String name) {
-        return name.toUpperCase();  // Bug: Null pointer if name is null
+        return name.toUpperCase();  / Bug: Null pointer if name is null
     }
-    
-    // Code Smell: Empty catch block
+
+    / Code Smell: Empty catch block
     public void riskyOperation() {
         try {
             int x = 10 / 0;
         } catch (Exception e) {
-            // Empty catch block - swallowing exception
+            / Empty catch block - swallowing exception
         }
     }
 }
@@ -178,25 +182,25 @@ EOF
 # Create pom.xml for Maven build
 cat > sample-java-app/pom.xml << 'EOF'
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http:/maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http:/www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http:/maven.apache.org/POM/4.0.0
+         http:/maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
+
     <groupId>com.example</groupId>
     <artifactId>sample-app</artifactId>
     <version>1.0-SNAPSHOT</version>
-    
+
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <sonar.projectKey>sample-java-app</sonar.projectKey>
         <sonar.organization>my-org</sonar.organization>
-        <sonar.host.url>http://localhost:9000</sonar.host.url>
+        <sonar.host.url>http:/localhost:9000</sonar.host.url>
         <sonar.login>your-sonar-token</sonar.login>
     </properties>
-    
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -205,7 +209,7 @@ cat > sample-java-app/pom.xml << 'EOF'
             <scope>test</scope>
         </dependency>
     </dependencies>
-    
+
     <build>
         <plugins>
             <plugin>
@@ -223,28 +227,29 @@ EOF
 
 ```bash
 # Install SonarQube Scanner (on host machine or in Docker)
-docker run -d \
-  --name sonar-scanner \
-  --network sonarqube-lab \
-  -v $(pwd)/sample-java-app:/usr/src \
-  sonarsource/sonar-scanner-cli:latest \
+docker run -d /
+  --name sonar-scanner /
+  --network sonarqube-lab /
+  -v $(pwd)/sample-java-app:/usr/src /
+  sonarsource/sonar-scanner-cli:latest /
   sleep infinity
 
 # Or install locally (for Ubuntu/Debian)
-wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+wget https:/binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
 unzip sonar-scanner-cli-5.0.1.3006-linux.zip
 sudo mv sonar-scanner-5.0.1.3006-linux /opt/sonar-scanner
 export PATH=$PATH:/opt/sonar-scanner/bin
 ```
 
-![ ](screenshots\screenshot3.png)
-![ ](screenshots\screenshot4.png)
-![ ](screenshots\screenshot5.png)
+![ ](screenshots/screenshot3.png)
+![ ](screenshots/screenshot4.png)
+![ ](screenshots/screenshot5.png)
+
 #### Step 4: Configure and Run SonarQube Analysis
 
 ```bash
 # Generate SonarQube token
-# Access http://localhost:9000 → Login (admin/admin)
+# Access http:/localhost:9000 → Login (admin/admin)
 # Click on user icon → My Account → Security → Generate Token
 # Copy the token (e.g., sqp_xxxxxxxxxxxx)
 
@@ -264,27 +269,28 @@ cd sample-java-app
 javac -d target/classes src/main/java/com/example/Calculator.java
 
 # Run SonarQube scan (using Docker)
-docker exec -e SONAR_TOKEN="squ_248d66ecb94ebe00252f76623db4c0667ad73ca2" \
-  sonar-scanner \
-  sonar-scanner \
-  -Dsonar.host.url=http://sonarqube:9000 \
-  -Dsonar.projectKey=sample-java-app \
-  -Dsonar.projectName="Sample Java App" \
+docker exec -e SONAR_TOKEN="squ_248d66ecb94ebe00252f76623db4c0667ad73ca2" /
+  sonar-scanner /
+  sonar-scanner /
+  -Dsonar.host.url=http:/sonarqube:9000 /
+  -Dsonar.projectKey=sample-java-app /
+  -Dsonar.projectName="Sample Java App" /
   -Dsonar.sources=/usr/src/src
 
 # Or using local scanner
-sonar-scanner \
-  -Dsonar.host.url=http://localhost:9000 \
+sonar-scanner /
+  -Dsonar.host.url=http:/localhost:9000 /
   -Dsonar.login="squ_248d66ecb94ebe00252f76623db4c0667ad73ca2"
 ```
-![ ](screenshots\screenshot10.png)
-![ ](screenshots\screenshot12.png)
+
+![ ](screenshots/screenshot10.png)
+![ ](screenshots/screenshot12.png)
 
 #### Step 6: Analyze Results
 
 ```bash
 # View analysis results
-# Open http://localhost:9000/dashboard?id=sample-java-app
+# Open http:/localhost:9000/dashboard?id=sample-java-app
 
 # You'll see:
 # - 8 Bugs
@@ -295,39 +301,39 @@ sonar-scanner \
 # - Technical Debt: ~2 hours
 
 # Generate report using SonarQube API
-curl -u admin:admin \
-  "http://localhost:9000/api/issues/search?projectKeys=sample-java-app&types=BUG"
+curl -u admin:admin /
+  "http:/localhost:9000/api/issues/search?projectKeys=sample-java-app&types=BUG"
 ```
 
-![ ](screenshots\screenshot13.png)
----
+## ![ ](screenshots/screenshot13.png)
 
 ## Comparative Analysis & Summary
 
 ### Tool Comparison Matrix
 
-| Feature | Jenkins | Ansible | Chef | SonarQube |
-|---------|---------|---------|------|-----------|
-| **Primary Purpose** | CI/CD Automation | Configuration Management | Configuration Management | Code Quality Analysis |
-| **Architecture** | Master-Agent | Push-based, Agentless | Pull-based, Client-Server | Client-Server |
-| **Language** | Java, Groovy | Python, YAML | Ruby | Java |
-| **Learning Curve** | Moderate | Low | High | Low |
-| **Setup Complexity** | Moderate | Simple | Complex | Simple |
-| **Scalability** | High (with agents) | Very High | Very High | Moderate |
-| **Use Case** | Build, Test, Deploy | Infrastructure as Code | Enterprise CM | Static Code Analysis |
-| **State Management** | Imperative | Declarative | Declarative | N/A |
-| **Idempotency** | No (by default) | Yes | Yes | N/A |
-| **Real-time** | Push (triggers) | Push | Pull (periodic) | Push |
+| Feature              | Jenkins             | Ansible                  | Chef                      | SonarQube             |
+| -------------------- | ------------------- | ------------------------ | ------------------------- | --------------------- |
+| **Primary Purpose**  | CI/CD Automation    | Configuration Management | Configuration Management  | Code Quality Analysis |
+| **Architecture**     | Master-Agent        | Push-based, Agentless    | Pull-based, Client-Server | Client-Server         |
+| **Language**         | Java, Groovy        | Python, YAML             | Ruby                      | Java                  |
+| **Learning Curve**   | Moderate            | Low                      | High                      | Low                   |
+| **Setup Complexity** | Moderate            | Simple                   | Complex                   | Simple                |
+| **Scalability**      | High (with agents)  | Very High                | Very High                 | Moderate              |
+| **Use Case**         | Build, Test, Deploy | Infrastructure as Code   | Enterprise CM             | Static Code Analysis  |
+| **State Management** | Imperative          | Declarative              | Declarative               | N/A                   |
+| **Idempotency**      | No (by default)     | Yes                      | Yes                       | N/A                   |
+| **Real-time**        | Push (triggers)     | Push                     | Pull (periodic)           | Push                  |
 
 ### Commands Summary
 
 #### Jenkins
+
 ```bash
 # Start Jenkins
 docker run -d -p 8080:8080 -p 50000:50000 -v jenkins-data:/var/jenkins_home jenkins/jenkins:lts
 
 # Jenkins CLI
-java -jar jenkins-cli.jar -s http://localhost:8080 build sample-pipeline
+java -jar jenkins-cli.jar -s http:/localhost:8080 build sample-pipeline
 
 # Pipeline syntax
 pipeline {
@@ -340,6 +346,7 @@ pipeline {
 ```
 
 #### Ansible
+
 ```bash
 # Ansible commands
 ansible all -i inventory -m ping
@@ -354,6 +361,7 @@ ansible webservers -m copy -a "src=file dest=/tmp/"
 ```
 
 #### Chef
+
 ```bash
 # Chef commands
 knife node list
@@ -368,6 +376,7 @@ chef exec foodcritic my_cookbook
 ```
 
 #### SonarQube
+
 ```bash
 # SonarQube commands
 docker run -d -p 9000:9000 sonarqube:lts-community
@@ -377,26 +386,29 @@ sonar-scanner -Dsonar.projectKey=myapp -Dsonar.sources=.
 mvn sonar:sonar
 
 # API calls
-curl -u admin:admin "http://localhost:9000/api/measures/component?component=myapp&metricKeys=bugs,coverage"
+curl -u admin:admin "http:/localhost:9000/api/measures/component?component=myapp&metricKeys=bugs,coverage"
 ```
 
 ### Key Differences and When to Use
 
 #### **Jenkins vs. Configuration Management Tools**
+
 - **Jenkins**: Use for build pipelines, testing, and deployment orchestration
 - **Ansible/Chef**: Use for maintaining consistent server configurations
 - **Best Practice**: Combine both - Jenkins orchestrates, CM tools configure
 
 #### **Ansible vs. Chef**
-| Aspect | Ansible | Chef |
-|--------|---------|------|
-| **Complexity** | Simpler, YAML-based | Complex, Ruby-based |
-| **Learning** | Easy to start | Steep learning curve |
-| **Performance** | Slower with many nodes | Better with large scale |
-| **Agent** | Agentless | Requires Chef client |
-| **Best For** | Small to medium environments | Large enterprise |
+
+| Aspect          | Ansible                      | Chef                    |
+| --------------- | ---------------------------- | ----------------------- |
+| **Complexity**  | Simpler, YAML-based          | Complex, Ruby-based     |
+| **Learning**    | Easy to start                | Steep learning curve    |
+| **Performance** | Slower with many nodes       | Better with large scale |
+| **Agent**       | Agentless                    | Requires Chef client    |
+| **Best For**    | Small to medium environments | Large enterprise        |
 
 #### **SonarQube in CI/CD**
+
 - **When to scan**: Every pull request and nightly builds
 - **Quality Gates**: Define thresholds to block deployments
 - **Integration**: Jenkins, GitLab CI, GitHub Actions
@@ -404,10 +416,11 @@ curl -u admin:admin "http://localhost:9000/api/measures/component?component=myap
 ### Lab Procedure Summary
 
 1. **Setup Environment**
+
    ```bash
    # Create Docker network
    docker network create devops-lab
-   
+
    # Run all containers
    docker run -d --name jenkins --network devops-lab -p 8080:8080 jenkins/jenkins
    docker run -d --name sonarqube --network devops-lab -p 9000:9000 sonarqube
@@ -426,6 +439,7 @@ curl -u admin:admin "http://localhost:9000/api/measures/component?component=myap
    - Jenkinsfile for pipeline
 
 4. **Implement CI/CD Pipeline**
+
    ```groovy
    pipeline {
        stages {

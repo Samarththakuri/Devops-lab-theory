@@ -137,7 +137,7 @@ pipeline {
         }
 
         stage('Push to Docker Hub') {
-            steps { 
+            steps {
                 sh 'docker push $IMAGE_NAME:latest'
             }
         }
@@ -175,7 +175,9 @@ volumes:
 ```bash
 docker-compose up -d
 ```
-![ ](screenshots\screenshot1.png)
+
+![ ](screenshots/screenshot1.png)
+
 ### 6.3 Get Initial Admin Password
 
 ```bash
@@ -187,7 +189,7 @@ docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 ### 6.4 Unlock Jenkins
 
 Access Jenkins at `http://localhost:8091`, paste the password obtained from the command above and click **Continue**:
-![ ](screenshots\screenshot3.png)
+![ ](screenshots/screenshot3.png)
 
 ---
 
@@ -195,7 +197,7 @@ Access Jenkins at `http://localhost:8091`, paste the password obtained from the 
 
 Select **Install suggested plugins** to install all recommended plugins:
 
-![ ](screenshots\screenshot3.png)
+![ ](screenshots/screenshot3.png)
 
 ---
 
@@ -212,7 +214,7 @@ Account Settings → Personal access tokens → New access token
 - Description: `Docker Hub Token`
 - Permissions: `Read & Write`
 
-![ ](screenshots\screenshot4.png)
+![ ](screenshots/screenshot4.png)
 
 ---
 
@@ -226,14 +228,14 @@ Manage Jenkins → Credentials → Add Credentials
 
 Select **Secret text** as the credential type:
 
-![ ](screenshots\screenshot5.png)
+![ ](screenshots/screenshot5.png)
 
 - ID: `dockerhub-token`
 - Value: Docker Hub Access Token generated above
 
 Credential saved successfully:
 
-![ ](screenshots\screenshot6.png)
+![ ](screenshots/screenshot6.png)
 
 ---
 
@@ -254,12 +256,11 @@ Script Path: Jenkinsfile
 
 Pipeline job created — no builds yet:
 
-![ ](screenshots\screenshot8.png)
+![ ](screenshots/screenshot8.png)
 
 ---
 
 ## 8. Part D: GitHub Webhook Integration
-
 
 ### 8.1 Configure Webhook on GitHub
 
@@ -269,10 +270,9 @@ In the GitHub repository:
 Settings → Webhooks → Add Webhook
 ```
 
-
 - Trigger: **Just the push event**
 
-![ ](screenshots\screenshot11.png)
+![ ](screenshots/screenshot11.png)
 
 ---
 
@@ -298,19 +298,19 @@ The pipeline runs through 4 stages:
 ### Stage 4: Build Results
 
 The `ci-cd-pipeline` job shows:
+
 - ✅ Build **#3** — Successful (2 min 41 sec ago)
 - ⚠️ Build **#2** — Unsuccessful
 - ❌ Build **#1** — Failed
 
-![ ](screenshots\screenshot12.png)
-
+![ ](screenshots/screenshot12.png)
 
 ### Stage 5: Image on Docker Hub
 
 The Docker image `krishnanshu1204/jenkins-app` is successfully pushed to Docker Hub and visible in the repositories list (Last pushed: 3 minutes ago):
-![ ](screenshots\screenshot13.png)
+![ ](screenshots/screenshot13.png)
 
-![ ](screenshots\screenshot14.png)
+![ ](screenshots/screenshot14.png)
 
 ## 11. Role of Same Host Agent
 
@@ -374,16 +374,16 @@ pipeline {
 
 ### Key Terms
 
-| Term | Meaning |
-|---|---|
-| `pipeline {}` | Root block — everything goes inside this |
-| `agent any` | Run on any available node (same Docker host) |
-| `stages {}` | Groups all phases of the pipeline |
-| `stage('Name')` | A single phase — visible as a block in Jenkins GUI |
-| `steps {}` | Contains actual commands to execute |
-| `sh` | Runs Linux shell commands |
-| `git` | Clones source code from GitHub |
-| `withCredentials` | Securely injects stored secrets temporarily |
+| Term              | Meaning                                            |
+| ----------------- | -------------------------------------------------- |
+| `pipeline {}`     | Root block — everything goes inside this           |
+| `agent any`       | Run on any available node (same Docker host)       |
+| `stages {}`       | Groups all phases of the pipeline                  |
+| `stage('Name')`   | A single phase — visible as a block in Jenkins GUI |
+| `steps {}`        | Contains actual commands to execute                |
+| `sh`              | Runs Linux shell commands                          |
+| `git`             | Clones source code from GitHub                     |
+| `withCredentials` | Securely injects stored secrets temporarily        |
 
 ### withCredentials — Secure Login Explained
 
@@ -393,11 +393,11 @@ withCredentials([string(credentialsId: 'dockerhub-token', variable: 'DOCKER_TOKE
 }
 ```
 
-| Part | Meaning |
-|---|---|
-| `string` | Type of secret (text token) |
-| `credentialsId` | ID used when saving in Jenkins (`dockerhub-token`) |
-| `variable` | Temporary env variable name (`DOCKER_TOKEN`) |
-| `--password-stdin` | Secure login — no plain password in command |
+| Part               | Meaning                                            |
+| ------------------ | -------------------------------------------------- |
+| `string`           | Type of secret (text token)                        |
+| `credentialsId`    | ID used when saving in Jenkins (`dockerhub-token`) |
+| `variable`         | Temporary env variable name (`DOCKER_TOKEN`)       |
+| `--password-stdin` | Secure login — no plain password in command        |
 
 The secret is injected temporarily inside the block and disappears after — it is never exposed in logs or code.
