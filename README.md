@@ -50,7 +50,8 @@ This section contains practical experiments to apply DevOps and containerization
 - [Lab 7: Jenkins App](Labs/experiment7/README.md)
 - [Lab 9: Ansible](Labs/experiment9/README.md)
 - [Lab 10: SonarQube](Labs/experiment10/README.md)
-- [Lab 11: Orchestration using docker compose & docker swarm](Labs/experiment10/README.md)
+- [Lab 11: Orchestration using docker compose & docker swarm](Labs/experiment11/README.md)
+- [Lab 12: Orchestration using Kubernetes](Labs/experiment12/README.md)
 
 ---
 
